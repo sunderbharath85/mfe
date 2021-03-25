@@ -10,9 +10,10 @@ on:
       - master
     paths:
       - 'pacakges/container/**'
+      - '.github/workflows'
 defaults:
   run:
-    working-directory: packages/container
+    working-directory: pacakges/container
 jobs:
   build:
     runs-on: ubuntu-latest
