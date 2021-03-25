@@ -25,6 +25,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - run: npm install
       - run: npm run build
+        env:
+          PRODUCTION_DOMAIN: 'https://samplemfe.z22.web.core.windows.net'
       - name: Upload to blob storage
         uses: azure/CLI@v1
         with:
