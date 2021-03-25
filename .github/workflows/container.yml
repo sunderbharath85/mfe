@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: deploy-container
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches:
+      - master
+    paths:
+      - "packages/container/**"
+defaults:
+  run:
+    working-directory: packages/container
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
