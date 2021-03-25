@@ -20,5 +20,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - run: npm install
       - run: npm run build
+      - name: Upload to blob storage
+      - uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+              az storage blob upload-batch --account-name samplemfe -d '$web' -s .
+      - name: logout
+        run: |
+              az logout
