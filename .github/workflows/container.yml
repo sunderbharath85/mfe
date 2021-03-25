@@ -10,7 +10,7 @@ on:
       - master
     paths:
       - 'pacakges/container/**'
-      - '.github/workflows/**'
+      - '.github/workflows/container.yml'
 defaults:
   run:
     working-directory: pacakges/container
