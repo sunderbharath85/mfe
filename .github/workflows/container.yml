@@ -30,7 +30,7 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-              az storage blob upload-batch --account-name samplemfe -d '$web' -s ./packages/container/dist
+              az storage blob upload-batch --account-name samplemfe -d '$web' -s ./pacakges/container/dist
       - name: logout
         run: |
               az logout
